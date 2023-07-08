@@ -13,12 +13,14 @@ defmodule RobotViz.GameViz do
     }
   end
 
+  def step(%GameViz{index: nil} = game_viz), do: game_viz
+
   def step(%GameViz{} = game_viz) do
     %GameViz{index: index, instructions: instructions} = game_viz
     new_index = index + 1
 
     if new_index == length(instructions) do
-      {:ok, :done}
+      %GameViz{game_viz | index: nil}
     else
       instructions_str =
         Enum.take(instructions, index + 1)
@@ -27,6 +29,9 @@ defmodule RobotViz.GameViz do
       case Robot.run(instructions_str) do
         %Game{} = game ->
           %GameViz{game_viz | index: new_index, game: game}
+
+        {:error, :all_invalid} ->
+          %GameViz{game_viz | index: new_index}
       end
     end
   end

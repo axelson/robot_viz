@@ -35,7 +35,7 @@ defmodule RobotVizWeb.Board do
     ~H"""
     <%= for {instruction, index} <- Enum.with_index(@game_viz.instructions) do %>
       <div>
-        <%= if @game_viz.index == index do %>
+        <%= if @game_viz.index == index + 1 do %>
           ->
         <% end %>
         <%= instruction %>

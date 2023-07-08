@@ -17,7 +17,7 @@ defmodule RobotVizWeb.Router do
   scope "/", RobotVizWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", GameLive, :show
   end
 
   # Other scopes may use custom stacks.
