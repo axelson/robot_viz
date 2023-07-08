@@ -1,6 +1,5 @@
 <.flash_group flash={@flash} />
-<div class="left-[40rem] fixed inset-y-0 right-0 z-0 hidden lg:block xl:left-[50rem]">
-</div>
+<div class="left-[40rem] fixed inset-y-0 right-0 z-0 hidden lg:block xl:left-[50rem]"></div>
 <div class="px-4 py-4">
   <div class="mx-auto max-w-2xl lg:mx-0">
     <p class="text-[2rem] font-semibold leading-10 tracking-tighter text-zinc-900">
@@ -8,16 +7,16 @@
     </p>
     <div class="flex">
       <div>
-	<h1>Instructions</h1>
-	<textarea></textarea>
+        <h1>Instructions</h1>
+        <RobotVizWeb.Board.instructions game_viz={@game_viz} />
       </div>
       <div>
-	<h1>Board</h1>
-	<RobotVizWeb.Board.board game={@game} />
+        <h1>Board</h1>
+        <RobotVizWeb.Board.board game={@game} />
       </div>
       <div>
-	<h1>Reports</h1>
-	<RobotVizWeb.Board.reports game={@game} />
+        <h1>Reports</h1>
+        <RobotVizWeb.Board.reports game={@game} />
       </div>
     </div>
     <div class="flex">
